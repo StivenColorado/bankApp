@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .navbar-bg {
+            background-color: #664795;
+        }
+
+        .btn-primary {
+            background-color: #3C3B6B;
+            border-color: #3C3B6B;
+        }
+
+        .btn-primary:hover {
+            background-color: #2a2a4b;
+            border-color: #2a2a4b;
+        }
+    </style>
+</head>
+
+<body class="font-sans bg-white text-gray-900">
+
+    <!-- Navbar -->
+    <nav class="navbar-bg p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+            <!-- Menu -->
+            <div class="hidden md:flex space-x-4 ml-auto p-2">
+                <a href="#contacto" class="text-white hover:text-gray-200">Contacto</a>
+                <a href="#quienes-somos" class="text-white hover:text-gray-200">Quiénes somos</a>
+                <a href="#consultas" class="text-white hover:text-gray-200">Consultas</a>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="fixed inset-0 bg-[#3C3B6B] p-4 md:hidden hidden">
+                <button id="mobile-menu-close" class="text-white absolute top-4 right-4">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+                <a href="#contacto" class="block text-white py-2">Contacto</a>
+                <a href="#quienes-somos" class="block text-white py-2">Quiénes somos</a>
+                <a href="#consultas" class="block text-white py-2">Consultas</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex flex-col items-center justify-start m-6 min-h-screen p-4">
+        <h1 class="text-4xl md:text-6xl font-bold text-[#5A1B77] m-20">Tu Información</h1>
+        <div class="flex flex-wrap gap-4 justify-center">
+            <!-- Opción 1 -->
+            <div
+                class="relative w-64 h-[230px] bg-[#C79BE2]/50 border border-gray-200 rounded-lg shadow-md p-4 flex flex-col items-center justify-center cursor-pointer hover:border-2 hover:border-green-800">
+                <div
+                    class="absolute -top-3 -left-3 w-12 h-12 bg-white border-2 border-black text-black rounded-full flex items-center justify-center text-xl ">
+                    ⚠️
+                </div>
+                <div class="text-center">
+                    <h3 class="text-lg font-semibold mb-2">Atencion urgente</h3>
+                    <p>¿Tu informacion esta en riesgo?</p>
+                </div>
+                <a href="" class="px-6 py-2 font-bold rounded-full text-black cursor-pointer">
+                    Ingresa aquí ->
+                </a>
+            </div>
+            <!-- Opción 2 -->
+            <div
+                class="relative w-64 h-[230px] bg-[#A8E2F4]/50 border border-gray-200 rounded-lg shadow-md p-4 flex flex-col items-center justify-center cursor-pointer hover:border-2 hover:border-green-800">
+                <div
+                    class="absolute -top-3 -left-3 w-12 h-12 bg-white border-2 border-black text-white rounded-full flex items-center justify-center text-xl">
+                    💳
+                </div>
+                <div class="text-center">
+                    <h3 class="text-lg font-semibold mb-2">Gestiones bancarias</h3>
+                    <ul class="list-disc list-inside text-left mb-4">
+                        <li>Apertura/cierre de cuentas</li>
+                        <li>Prestamos</li>
+                    </ul>
+                </div>
+                <a href="" class="px-6 py-2 font-bold rounded-full text-black cursor-pointer">
+                    Ingresa aquí ->
+                </a>
+            </div>
+            <!-- Opción 3 -->
+            <div
+                class="relative w-64 h-[230px] bg-[#578AA7]/50 border border-gray-200 rounded-lg shadow-md p-4 flex flex-col items-center justify-center cursor-pointer hover:border-2 hover:border-green-800">
+                <div
+                    class="absolute -top-3 -left-3 w-12 h-12 bg-white border-2 border-black text-white rounded-full flex items-center justify-center text-xl">
+                    🛟
+                </div>
+                <div class="text-center">
+                    <h3 class="text-lg font-semibold mb-2">Servicios comunes</h3>
+                    <ul class="list-disc list-inside text-left mb-4">
+                        <li>Pago de facturas</li>
+                        <li>Consultas</li>
+                    </ul>
+                </div>
+                <a href="" class="px-6 py-2 font-bold rounded-full text-black cursor-pointer">
+                    Ingresa aquí ->
+                </a>
+            </div>
+            <!-- Opción 4 -->
+            <div
+                class="relative w-64 h-[230px] bg-[#8BE0EC]/50 border border-gray-200 rounded-lg shadow-md p-4 flex flex-col items-center justify-center cursor-pointer hover:border-2 hover:border-green-800">
+                <div
+                    class="absolute -top-3 -left-3 w-12 h-12 bg-white border-2 border-black text-white rounded-full flex items-center justify-center text-xl">
+                    👋
+                </div>
+                <div class="text-center">
+                    <h3 class="text-lg font-semibold mb-2">Mi perfil</h3>
+                    <ul class="list-disc list-inside text-left mb-4">
+                        <li>Actualizar informacion</li>
+                        <li>Ver historial</li>
+                    </ul>
+                </div>
+                <a href="" class="px-6 py-2 font-bold rounded-full text-black cursor-pointer">
+                    Ingresa aquí ->
+                </a>
+            </div>
+            <!-- Puedes agregar más opciones aquí -->
+        </div>
+    </main>
+
+    <script>
+        // JavaScript for mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function () {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // JavaScript for mobile menu close
+        document.getElementById('mobile-menu-close').addEventListener('click', function () {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.add('hidden');
+        });
+    </script>
+
+</body>
+
+</html>
