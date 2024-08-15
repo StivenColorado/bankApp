@@ -7,7 +7,9 @@
     <title>Asistente Bancario</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="font-sans bg-white text-gray-900">
+
     <!-- Navbar -->
     <nav class="bg-[#664795] p-4">
         <div class="container mx-auto flex justify-between items-center">
@@ -45,16 +47,18 @@
 
     <!-- Main Content -->
     <main class="flex items-center justify-center min-h-screen">
-        <div class="text-left p-4">
-            <h1 class="text-4xl md:text-9xl font-bold mb-4 text-[#5A1B77]">Bienvenido</h1>
-            <p class="text-lg md:text-xl mb-6">Bienvenido a su asistente bancario personal, su compañero confiable para
-                todas sus consultas financieras.</p>
-                <button name="index_consulte_aqui" type="submit" class="btn-primary bg-gray-100 text-[#664795] font-bold px-6 py-3 rounded-full flex items-center">
-                    Consulta aqui
-                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"></path>
-                    </svg>
-                </button>
+        <div class="text-left p-4 flex flex-col items-center">
+            <h1 class="text-4xl md:text-9xl font-bold mb-4 text-center text-[#5A1B77]">Turnos</h1>
+            <p class="text-lg md:text-xl mb-6 text-center">
+                Solicitaste un turno, pronto un asesor te atenderá.
+                Gracias por usar nuestros productos 😉
+            </p>
+            <a href="./pages/form.html" class="bg-gray-100 text-[#664795] font-bold px-6 py-4 rounded-lg flex items-center">
+                Imprimir turno
+                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+            </a>
         </div>
     </main>
 
@@ -71,7 +75,7 @@
             menu.classList.add('hidden');
         });
     </script>
-<script src="./js/links.js"></script>
+
 </body>
 
 </html>

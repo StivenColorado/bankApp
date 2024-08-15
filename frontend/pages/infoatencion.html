@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Info atencion</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .navbar-bg {
+            background-color: #664795;
+        }
+
+        .btn-primary {
+            background-color: #3C3B6B;
+            border-color: #3C3B6B;
+        }
+
+        .btn-primary:hover {
+            background-color: #2a2a4b;
+            border-color: #2a2a4b;
+        }
+
+        .gradient-card {
+            background-image: linear-gradient(to right, #331C76, #553BA0);
+            color: white;
+        }
+    </style>
+</head>
+
+<body class="font-sans bg-white text-gray-900">
+
+    <!-- Navbar -->
+    <nav class="navbar-bg p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+            <!-- Menu -->
+            <div class="hidden md:flex space-x-4 ml-auto p-2">
+                <a href="#contacto" class="text-white hover:text-gray-200">Contacto</a>
+                <a href="#quienes-somos" class="text-white hover:text-gray-200">Quiénes somos</a>
+                <a href="#consultas" class="text-white hover:text-gray-200">Consultas</a>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="fixed inset-0 bg-[#3C3B6B] p-4 md:hidden hidden">
+                <button id="mobile-menu-close" class="text-white absolute top-4 right-4">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+                <a href="#contacto" class="block text-white py-2">Contacto</a>
+                <a href="#quienes-somos" class="block text-white py-2">Quiénes somos</a>
+                <a href="#consultas" class="block text-white py-2">Consultas</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex flex-col items-center justify-center min-h-screen">
+        <div class="bg-white p-6 w-full max-w-6xl flex flex-col justify-start rounded-lg shadow-lg gap-4 p-8">
+            <!-- Título Centrando -->
+            <h1 class="text-4xl font-bold mb-6 text-[#5A1B77] text-center">Cliente Actual</h1>
+
+            <!-- Contenedor de las Columnas -->
+            <div class="flex w-full">
+                <!-- Columna Izquierda -->
+                <div class="w-1/2 pr-4 select-none">
+                    <div class="bg-gray-200 p-4 rounded-lg border border-gray-300 min-w-48 shadow-sm h-full gradient-card text-white flex">
+                        <!-- Contenedor izquierdo: círculo para el ícono -->
+                        <div class="flex-shrink-0 flex items-start justify-center w-48">
+                            <div class="w-32 h-32 bg-white rounded-full flex items-center justify-center">
+                                <!-- Aquí puedes poner un icono -->
+                                <i class="text-gray-600 fas fa-user"></i>
+                            </div>
+                        </div>
+                
+                        <!-- Contenedor derecho: información de la tarjeta -->
+                        <div class="ml-4 flex-grow">
+                            <h2 class="text-lg font-semibold mb-4">Información de la Cuenta</h2>
+                            <div class="mb-2">
+                                <div class="text-sm font-medium">Nombre del Titular:</div>
+                                <div class="text-sm">Juan Pérez</div>
+                            </div>
+                            <div class="mb-2">
+                                <div class="text-sm font-medium">Edad:</div>
+                                <div class="text-sm">34</div>
+                            </div>
+                            <div class="mb-2">
+                                <div class="text-sm font-medium">Tipo Cliente:</div>
+                                <div class="text-sm">Cliente VIP</div>
+                            </div>
+                            <div class="mb-4">
+                                <div class="text-sm font-medium">Número de Cédula:</div>
+                                <div class="text-sm">123456789</div>
+                            </div>
+                            <!-- ID en la parte inferior -->
+                            <div class="text-sm font-medium text-gray-400 text-end">#id : 222</div>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <!-- Columna Derecha -->
+                <div class="w-1/2 pl-4 flex flex-col justify-between">
+                    <div class="flex flex-col space-y-4">
+                        <div>
+                            <h2 class="text-xl font-semibold">Informacion de atencion</h2>
+                        </div>
+                        <div class="flex space-x-4">
+                            <div class="text-lg">Numero de turno: <span>4343</span></div>
+                            <div class="text-lg">id atencion: <span>A343</span></div>
+                        </div>
+                        <div class="text-lg">Nombre de servicio</div>
+                        <a href="./pages/form.html"
+                            class="bg-gray-100 text-[#664795] max-w-48 font-bold px-6 py-4 rounded-lg hover:shadow-lg flex items-center justify-center">
+                            Imprimir turno
+                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 12h14M12 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // JavaScript for mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function () {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // JavaScript for mobile menu close
+        document.getElementById('mobile-menu-close').addEventListener('click', function () {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.add('hidden');
+        });
+    </script>
+
+</body>
+
+</html>
