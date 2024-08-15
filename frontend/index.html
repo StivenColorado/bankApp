@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,15 +8,16 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="font-sans bg-white text-gray-900">
-
     <!-- Navbar -->
     <nav class="bg-[#664795] p-4">
         <div class="container mx-auto flex justify-between items-center">
             <!-- Mobile Menu Button -->
             <div class="md:hidden flex items-center">
                 <button id="mobile-menu-button" class="text-white focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
                     </svg>
                 </button>
             </div>
@@ -28,8 +30,10 @@
             <!-- Mobile Menu -->
             <div id="mobile-menu" class="fixed inset-0 bg-[#3C3B6B] p-4 md:hidden hidden">
                 <button id="mobile-menu-close" class="text-white absolute top-4 right-4">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
                     </svg>
                 </button>
                 <a href="#contacto" class="block text-white py-2">Contacto</a>
@@ -43,24 +47,31 @@
     <main class="flex items-center justify-center min-h-screen">
         <div class="text-left p-4">
             <h1 class="text-4xl md:text-9xl font-bold mb-4 text-[#5A1B77]">Bienvenido</h1>
-            <p class="text-lg md:text-xl mb-6">Bienvenido a su asistente bancario personal, su compañero confiable para todas sus consultas financieras.</p>
-            <a href="./pages/form.html" class="bg-gray-100 text-[#664795] font-bold px-6 py-4 rounded-lg hover:bg-[#2a2a4b]">Consulta aqui ➡️</a>
+            <p class="text-lg md:text-xl mb-6">Bienvenido a su asistente bancario personal, su compañero confiable para
+                todas sus consultas financieras.</p>
+                <button name="index_consulte_aqui" type="submit" class="btn-primary bg-gray-100 text-[#664795] font-bold px-6 py-3 rounded-full flex items-center">
+                    Consulta aqui
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"></path>
+                    </svg>
+                </button>
         </div>
     </main>
 
     <script>
         // JavaScript for mobile menu toggle
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+        document.getElementById('mobile-menu-button').addEventListener('click', function () {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
         });
 
         // JavaScript for mobile menu close
-        document.getElementById('mobile-menu-close').addEventListener('click', function() {
+        document.getElementById('mobile-menu-close').addEventListener('click', function () {
             const menu = document.getElementById('mobile-menu');
             menu.classList.add('hidden');
         });
     </script>
-
+<script src="./js/links.js"></script>
 </body>
+
 </html>
