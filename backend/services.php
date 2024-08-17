@@ -1,14 +1,16 @@
 <?php
 include 'cors.php'; 
-
-// conexión a la base de datos
 include 'conexion.php'; 
 
 // Inicializar un array para la respuesta
 $response = array();
 
-// Preparar la consulta para obtener todos los registros de la tabla 'servicios'
-$query = "SELECT * FROM servicios";
+// Obtener el valor de tipo_cliente de la solicitud GET
+$tipo_cliente = isset($_GET['tipo_cliente']) ? $_GET['tipo_cliente'] : 'no_registrado';
+
+// Preparar la consulta SQL basada en el valor de tipo_cliente
+$query = "SELECT * FROM servicios WHERE tipo_servicio = '$tipo_cliente'";
+
 $result = $conn->query($query);
 
 // Verificar si hay registros
@@ -24,7 +26,7 @@ if ($result->num_rows > 0) {
     $response = array("status" => "success", "data" => $servicios);
 } else {
     // Si no hay registros, enviar un mensaje de error
-    $response = array("status" => "error", "message" => "No hay servicios registrados.");
+    $response = array("status" => "error", "message" => "No hay servicios disponibles.");
 }
 
 // Enviar la respuesta en formato JSON

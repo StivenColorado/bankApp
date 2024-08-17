@@ -1,9 +1,15 @@
 // Esperar a que el DOM esté completamente cargado
 document.addEventListener("DOMContentLoaded", () => {
-    client_name = JSON.parse(localStorage.getItem("cliente"))
-    name_container = document.querySelector("#nombre-cliente").textContent = "- " +client_name.nombre
+    let cliente = JSON.parse(localStorage.getItem("cliente"));
+    let tipo_cliente = cliente ? 'cliente' : 'no_registrado';
+
+    // Mostrar el nombre del cliente si existe
+    if (cliente) {
+        document.querySelector("#nombre-cliente").textContent = "- " + cliente.nombre;
+    }
+
     // Hacer una solicitud GET al servidor para obtener los servicios
-    fetch("http://localhost/bankApp/backend/services.php") // Cambia esta URL a la correcta
+    fetch(`http://localhost/bankApp/backend/services.php?tipo_cliente=${tipo_cliente}`) // Asegúrate de usar la ruta correcta
         .then(response => response.json())
         .then(data => {
             if (data.status === "success") {
@@ -40,11 +46,11 @@ document.addEventListener("DOMContentLoaded", () => {
                     // Título del servicio
                     const title = document.createElement("h3");
                     title.className = "text-lg font-semibold mb-2";
-                    title.textContent = servicio.nombre; // Cambia 'nombre' al campo adecuado
+                    title.textContent = servicio.nombre;
 
                     // Descripción del servicio
                     const description = document.createElement("p");
-                    description.textContent = servicio.descripcion; // Cambia 'descripcion' al campo adecuado
+                    description.textContent = servicio.descripcion;
 
                     // Crear el enlace
                     const link = document.createElement("a");

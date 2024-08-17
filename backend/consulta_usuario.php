@@ -16,7 +16,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $cedula = isset($data['cedula']) ? $data['cedula'] : null;
 
         // Verificar si los datos requeridos están presentes
-        if ($nombre && $cedula) {
+        if ($cedula) {
+     // if ($nombre && $cedula) {
             // Preparar la consulta para verificar la cédula
             $stmt = $conn->prepare("SELECT * FROM cliente WHERE cedula = ?");
             $stmt->bind_param("s", $cedula);

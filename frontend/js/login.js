@@ -3,14 +3,22 @@ let form = document.getElementById("formulario_consulta");
 form.addEventListener("submit", (e) => {
     e.preventDefault(); // Evita la recarga del formulario
 
+    // Verifica si existe 'cliente' en localStorage
+    localStorage.clear('cliente')
+    let cliente = localStorage.getItem('cliente');
+    let tipo_cliente = cliente ? true : false; // Define si el cliente existe (true o false)
+
     // Crea un objeto FormData a partir del formulario
     let formData = new FormData(form);
 
-    // Convierte FormData a un objeto JSON
+    // Convierte FormData a un objeto JSON y agrega tipo_cliente
     let data = {};
     formData.forEach((value, key) => {
         data[key] = value;
     });
+
+    // Añade el valor de tipo_cliente al objeto data
+    data.tipo_cliente = tipo_cliente;
 
     console.log(data);
 
@@ -39,15 +47,11 @@ form.addEventListener("submit", (e) => {
             localStorage.setItem('cliente', JSON.stringify(data.data));
             // redirigir a pagina de opciones
             location.href = "../pages/services.html"
-
-            // Recupera y muestra el objeto almacenado para verificación
-            // let cliente = localStorage.getItem('cliente');
-            // console.log(JSON.parse(cliente)); // Convierte la cadena JSON de vuelta a un objeto
         } else {
             alert(data.message); // Muestra mensaje de error
+            location.href = "../pages/services.html"
         }
     })
-    
     .catch(error => {
         console.error("Error en la solicitud:", error);
         alert("Hubo un problema con la solicitud.");
