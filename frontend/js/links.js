@@ -6,7 +6,7 @@ window.addEventListener('DOMContentLoaded', () => {
     let btn_form = document.querySelector('button[name="form_continuar"]')
 
     presionar(btn_index, 'pages/form')
-    presionar(btn_form,'services')
+    // presionar(btn_form,'services')
 })
 
 
