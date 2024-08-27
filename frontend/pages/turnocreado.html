@@ -46,20 +46,23 @@
     </nav>
 
     <!-- Main Content -->
-    <main class="flex items-center justify-center min-h-screen">
+    <main class="flex items-center justify-center min-h-screen flex-col">
+
         <div class="text-left p-4 flex flex-col items-center">
             <h1 class="text-4xl md:text-9xl font-bold mb-4 text-center text-[#5A1B77]">Turnos</h1>
             <p class="text-lg md:text-xl mb-6 text-center">
                 Solicitaste un turno, pronto un asesor te atenderá.
                 Gracias por usar nuestros productos 😉
             </p>
-            <a href="./pages/form.html" class="bg-gray-100 text-[#664795] font-bold px-6 py-4 rounded-lg flex items-center">
+            <a id="to_home_turno" class="bg-gray-100 text-[#664795] font-bold px-6 py-4 rounded-lg flex items-center">
                 Imprimir turno
                 <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"></path>
                 </svg>
             </a>
         </div>
+        <div id="output" class=" flex flex-col justify-center items-center"></div>
+
     </main>
 
     <script>
@@ -75,7 +78,7 @@
             menu.classList.add('hidden');
         });
     </script>
-
+    <script type="module" src="../js/crear_turno.js"></script>
 </body>
 
 </html>

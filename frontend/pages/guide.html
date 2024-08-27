@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de servicios</title>
+    <title>Guia</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .navbar-bg {
@@ -64,30 +64,36 @@
 
     <!-- Main Content -->
     <main class="flex flex-col items-center justify-center min-h-screen bg-white text-gray-900 p-4">
+        <!-- Contenedor padre con scroll infinito -->
         <div
-            class="container-options bg-gray-100 p-6 h-[75%] flex justify-center flex-col rounded-lg shadow-lg lg:w-[50%] min-w-md min-h-[400px]">
-            <h1 class="text-4xl md:text-4xl font-bold text-[#5A1B77] m-6 titulo-servicio"></h1>
+            class="container-options bg-gray-100 p-6 h-[75%] min-h-[500px] min-w-[40%] flex flex-col rounded-lg shadow-lg w-full max-w-md overflow-y-auto">
 
-            <!-- aqui se ingresan las opciones -->
+            <!-- Subcontenedor para el título y la descripción -->
+            <div class="w-full mb-4 container-options-respuestas">
+                <h1 class="text-4xl md:text-4xl font-bold text-[#5A1B77] mb-2 title-option"></h1>
+                <p class="text-gray-700 description-option"></p>
+            </div>
+
+            <!-- Contenedor donde se añaden las opciones dinámicamente -->
+            <div class="w-full flex flex-col space-y-4 main-container-respuestas">
+                <!-- <div
+                    class="bg-white px-8 py-4 shadow-sm flex flex-col items-center justify-between round-lg">
+                    <span class="text-gray-700 w-full font-bold title-answer">Opción 1</span>
+                    <span class="text-gray-700 description-answer">Ingresa a tu correo electronico, en la parte de tu perfil presiona configuraciones, ingresa a privacidad y seguridad y haz cambio de tu contraseña </span>
+                </div> -->
+            </div>
         </div>
+        <p class="m-4">Gracias por usar nuestros productos ☺️</p>
+        <a id="to-home-button"
+            class="text-white min-w-[10%] text-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+            Salir
+        </a>
+
 
     </main>
-
     <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
-    <script>
-        // JavaScript for mobile menu toggle
-        document.getElementById('mobile-menu-button').addEventListener('click', function () {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
-
-        // JavaScript for mobile menu close
-        document.getElementById('mobile-menu-close').addEventListener('click', function () {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.add('hidden');
-        });
-    </script>
-    <script type="module" src="../js/listservice.js"></script>
+    <script src="../js/guide.js"></script>
+    <script src="../js/registro_atencion_sistema.js"></script>
 </body>
 
 </html>

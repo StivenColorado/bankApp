@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,26 +10,71 @@
         .navbar-bg {
             background-color: #664795;
         }
+
         .btn-primary {
             background-color: #3C3B6B;
             border-color: #3C3B6B;
         }
+
         .btn-primary:hover {
             background-color: #2a2a4b;
             border-color: #2a2a4b;
         }
-    </style>
-</head>
-<body class="font-sans bg-white text-gray-900">
 
+        /* Estilo para el pad numérico */
+        .num-pad {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            /* Reducido para un espaciado mínimo entre botones */
+        }
+
+        .num-pad button {
+            background-color: #ca9fdeaa;
+            border: 1px solid #d1d5db;
+            color: #2a2a4b;
+            border-radius: 0.375rem;
+            padding: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: background-color 0.2s, border-color 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color:#300952c5;
+        }
+
+        .num-pad button:hover {
+            background-color: #a14e8c;
+            border-color: #9ca3af;
+            color:#ffffff;
+        }
+
+        .num-pad button:active {
+            background-color: #d1d5db;
+            border-color: #6b7280;
+        }
+
+        .num-pad .col-span-2 {
+            grid-column: span 2;
+        }
+    </style>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+</head>
+
+<body class="font-sans bg-white text-gray-900">
     <!-- Navbar -->
     <nav class="navbar-bg p-4">
         <div class="container mx-auto flex justify-between items-center">
             <!-- Mobile Menu Button -->
             <div class="md:hidden flex items-center">
                 <button id="mobile-menu-button" class="text-white focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
                     </svg>
                 </button>
             </div>
@@ -41,8 +87,10 @@
             <!-- Mobile Menu -->
             <div id="mobile-menu" class="fixed inset-0 bg-[#3C3B6B] p-4 md:hidden hidden">
                 <button id="mobile-menu-close" class="text-white absolute top-4 right-4">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
                     </svg>
                 </button>
                 <a href="#contacto" class="block text-white py-2">Contacto</a>
@@ -53,42 +101,81 @@
     </nav>
 
     <!-- Main Content -->
-    <main class="flex flex-col items-center justify-center min-h-screen bg-white text-gray-900 p-4">
-        <h1 class="text-4xl md:text-8xl font-bold text-[#5A1B77] mb-2">Tu Información</h1>
-        <p class="text-lg text-gray-700 mb-6">Queremos reconocer quien eres para brindarte un mejor servicio.</p>
-        <form class="bg-white p-6 h-[75%] flex justify-center flex-col rounded-lg shadow-lg w-full max-w-md min-h-[400px]" method="dialog">
-            <div class="mb-4">
+
+    <main class="flex min-h-screen bg-white text-gray-900 p-4">
+        <div class="flex flex-wrap flex-1 items-center justify-center p-4 mt-[25vh] h-[50vh] gap-20">
+            <div class="w-full h-[10%] flex justify-center flex-col items-center">
+                <h1 class="text-4xl md:text-8xl font-bold text-[#5A1B77] mb-2">Tu Información</h1>
+                <p class="text-lg text-gray-700 mb-6">Queremos reconocer quien eres para brindarte un mejor servicio.
+                </p>
+            </div>
+            <form class="bg-white p-6 flex flex-col rounded-lg shadow-lg w-full max-w-md min-h-[300px]" method="POST"
+                id="formulario_consulta">
+                <!-- <div class="mb-4">
                 <label for="nombre" class="block text-gray-700 text-sm font-bold mb-2">Nombre</label>
                 <input type="text" id="nombre" name="nombre" class="bg-gray-100 w-full px-8 py-4 border border-gray-300 rounded-full shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
-            </div>
-            <div class="mb-4">
-                <label for="cedula" class="block text-gray-700 text-sm font-bold mb-2">Cédula</label>
-                <input type="number" id="cedula" name="cedula" class="bg-gray-100 w-full px-8 py-4 border border-gray-300 rounded-full shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
-            </div>
-            <div class="flex justify-center">
-                <button name="form_continuar" type="submit" class="hover:shadow-lg bg-gray-100 text-[#664795] font-bold px-6 py-3 rounded-full flex items-center">
-                    Continuar
-                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"></path>
-                    </svg>
-                </button>
-            </div>
-        </form>
-    </main>
+            </div> -->
+                <div class="mb-4">
+                    <label for="cedula" class="block text-gray-700 text-sm font-bold mb-2">Cédula</label>
+                    <input type="number" id="cedula" name="cedula"
+                        class="bg-gray-100 w-full px-8 py-4 border border-gray-300 rounded-full shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                        required>
 
+                </div>
+                <div class="flex justify-center">
+                    <button name="form_continuar" type="submit"
+                        class="hover:shadow-lg bg-gray-100 text-[#664795] font-bold px-6 py-3 rounded-full flex items-center">
+                        Continuar
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M5 12h14M12 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </form>
+            <div class="flex-shrink-0 w-64 p-2 shadow-lg h-[25vh] flex items-center justify-center bg-purple-100">
+                <div class="num-pad w-full h-full">
+                    <button class="bg-white text-gray-800 hover:bg-purple-200">1</button>
+                    <button class="bg-white text-gray-800 hover:bg-purple-200">2</button>
+                    <button class="bg-white text-gray-800 hover:bg-purple-200">3</button>
+                    <button class="bg-white text-gray-800 hover:bg-purple-200">4</button>
+                    <button class="bg-white text-gray-800 hover:bg-purple-200">5</button>
+                    <button class="bg-white text-gray-800 hover:bg-purple-200">6</button>
+                    <button class="bg-white text-gray-800 hover:bg-purple-200">7</button>
+                    <button class="bg-white text-gray-800 hover:bg-purple-200">8</button>
+                    <button class="bg-white text-gray-800 hover:bg-purple-200">9</button>
+                    <button class="col-span-2 bg-white text-gray-800 hover:bg-gray-100">0</button>
+                    <button class="bg-white text-gray-800 hover:bg-gray-100" value="C">
+                        <span class="material-symbols-outlined text-black">
+                            backspace
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+    <script type="module" src="../js/login.js">
+        import { Notyf } from 'notyf'; // Asegúrate de que la librería Notyf esté importada correctamente
+
+
+    </script>
     <script>
         // JavaScript for mobile menu toggle
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+        document.getElementById('mobile-menu-button').addEventListener('click', function () {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
         });
 
         // JavaScript for mobile menu close
-        document.getElementById('mobile-menu-close').addEventListener('click', function() {
+        document.getElementById('mobile-menu-close').addEventListener('click', function () {
             const menu = document.getElementById('mobile-menu');
             menu.classList.add('hidden');
         });
     </script>
-<script src="../js/links.js"></script>
+    <script src="../js/links.js"></script>
+    <script src="../js/padnumerico.js"></script>
 </body>
+
 </html>

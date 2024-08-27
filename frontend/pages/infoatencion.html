@@ -22,10 +22,21 @@
         }
 
         .gradient-card {
-            background-image: linear-gradient(to right, #331C76, #553BA0);
+            background: rgb(69, 14, 110);
+            background: linear-gradient(288deg, rgba(69, 14, 110, 1) 0%, rgba(59, 9, 121, 1) 35%, rgb(51, 9, 91) 44%, rgb(91, 28, 140) 100%);
             color: white;
+            transition: background 0.3s ease-in-out;
+            /* Asegura que el contenido no se desplace durante el cambio */
+            will-change: background;
+        }
+
+        .gradient-card:hover {
+            background: rgb(80, 20, 120);
+            background: linear-gradient(288deg, rgba(80, 20, 120, 1) 0%, rgba(70, 15, 130, 1) 35%, rgb(60, 15, 100) 44%, rgb(100, 40, 150) 100%);
         }
     </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+
 </head>
 
 <body class="font-sans bg-white text-gray-900">
@@ -66,75 +77,81 @@
     </nav>
 
     <!-- Main Content -->
-    <main class="flex flex-col items-center justify-center min-h-screen">
-        <div class="bg-white p-6 w-full max-w-6xl flex flex-col justify-start rounded-lg shadow-lg gap-4 p-8">
-            <!-- Título Centrando -->
-            <h1 class="text-4xl font-bold mb-6 text-[#5A1B77] text-center">Cliente Actual</h1>
+    <main class="flex flex-row md:flex-row items-center justify-center min-h-screen gap-20">
+        <!-- aqui va la lista de turnos  -->
+        <div id="turnos-list"
+            class="flex flex-col items-center justify-start w-[45%] sm:min-w-[200px] md:min-w-[500px] h-[70vh] p-4 overflow-auto bg-blue-100/50 rounded-lg">
 
-            <!-- Contenedor de las Columnas -->
-            <div class="flex w-full">
-                <!-- Columna Izquierda -->
-                <div class="w-1/2 pr-4 select-none">
-                    <div class="bg-gray-200 p-4 rounded-lg border border-gray-300 min-w-48 shadow-sm h-full gradient-card text-white flex">
-                        <!-- Contenedor izquierdo: círculo para el ícono -->
-                        <div class="flex-shrink-0 flex items-start justify-center w-48">
-                            <div class="w-32 h-32 bg-white rounded-full flex items-center justify-center">
-                                <!-- Aquí puedes poner un icono -->
-                                <i class="text-gray-600 fas fa-user"></i>
-                            </div>
-                        </div>
-                
-                        <!-- Contenedor derecho: información de la tarjeta -->
-                        <div class="ml-4 flex-grow">
-                            <h2 class="text-lg font-semibold mb-4">Información de la Cuenta</h2>
-                            <div class="mb-2">
-                                <div class="text-sm font-medium">Nombre del Titular:</div>
-                                <div class="text-sm">Juan Pérez</div>
-                            </div>
-                            <div class="mb-2">
-                                <div class="text-sm font-medium">Edad:</div>
-                                <div class="text-sm">34</div>
-                            </div>
-                            <div class="mb-2">
-                                <div class="text-sm font-medium">Tipo Cliente:</div>
-                                <div class="text-sm">Cliente VIP</div>
-                            </div>
-                            <div class="mb-4">
-                                <div class="text-sm font-medium">Número de Cédula:</div>
-                                <div class="text-sm">123456789</div>
-                            </div>
-                            <!-- ID en la parte inferior -->
-                            <div class="text-sm font-medium text-gray-400 text-end">#id : 222</div>
+            <!-- Aquí se añadirá la lista de turnos dinámicamente -->
+        </div>
+
+
+
+        <!-- Contenedor de las Columnas -->
+        <div class="flex flex-col md:flex-row w-[45%]">
+            <!-- Columna Izquierda -->
+            <div class="w-full md:w-1/2 pr-4 select-none mb-4 md:mb-0">
+                <div id="oldest-row"
+                    class="bg-gray-200 p-4 rounded-lg border border-gray-300 min-w-48 shadow-sm h-full gradient-card text-white flex row-item shadow-2xl">
+                    <!-- Contenedor izquierdo: círculo para el ícono -->
+                    <div class="flex-shrink-0 flex items-start justify-center w-48">
+                        <div class="w-32 h-32 bg-white rounded-full flex items-center justify-center">
+                            <!-- Aquí puedes poner un icono -->
+                            <i class="text-gray-600 fas fa-user"></i>
                         </div>
                     </div>
-                </div>
-                
-
-                <!-- Columna Derecha -->
-                <div class="w-1/2 pl-4 flex flex-col justify-between">
-                    <div class="flex flex-col space-y-4">
-                        <div>
-                            <h2 class="text-xl font-semibold">Informacion de atencion</h2>
+                    <!-- Contenedor derecho: información de la tarjeta -->
+                    <div class="ml-4 flex-grow">
+                        <h2 class="text-lg font-semibold mb-4">Información de la Cuenta</h2>
+                        <div class="mb-2">
+                            <div class="text-sm font-medium">Nombre del Titular:</div>
+                            <div class="text-sm lastest-name">Juan Pérez</div>
                         </div>
-                        <div class="flex space-x-4">
-                            <div class="text-lg">Numero de turno: <span>4343</span></div>
-                            <div class="text-lg">id atencion: <span>A343</span></div>
+                        <div class="mb-2">
+                            <div class="text-sm font-medium">Edad:</div>
+                            <div class="text-sm lastest-age">34</div>
                         </div>
-                        <div class="text-lg">Nombre de servicio</div>
-                        <a href="./pages/form.html"
-                            class="bg-gray-100 text-[#664795] max-w-48 font-bold px-6 py-4 rounded-lg hover:shadow-lg flex items-center justify-center">
-                            Imprimir turno
-                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M5 12h14M12 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
+                        <div class="mb-2">
+                            <div class="text-sm font-medium">Tipo Cliente:</div>
+                            <div class="text-sm lastest-type-client">Cliente VIP</div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="text-sm font-medium">Número de Cédula:</div>
+                            <div class="text-sm lastest-id-client">123456789</div>
+                        </div>
+                        <!-- ID en la parte inferior -->
+                        <div class="text-sm font-medium text-gray-400 text-end lastest-id-number">#id : 222</div>
                     </div>
                 </div>
             </div>
+
+            <!-- Columna Derecha -->
+            <div id="oldest-info" class="w-full md:w-1/2 pl-4 flex flex-col justify-between info-item">
+                <div class="flex flex-col space-y-4">
+                    <div>
+                        <h2 class="text-xl font-semibold">Informacion de atencion</h2>
+                    </div>
+                    <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4">
+                        <div class="text-lg">Numero de turno: <span id="turno-numero">4343</span></div>
+                        <div class="text-lg">id atencion: <span id="atencion-id">A343</span></div>
+                    </div>
+                    <div class="text-lg" id="servicio-nombre">Nombre de servicio</div>
+                    <a href="#"
+                        class="bg-gray-100 text-[#664795] max-w-48 font-bold px-6 py-4 rounded-lg hover:shadow-lg flex items-center justify-center bg-green-100 btn-set-status"
+                        id="turno-link">
+                        Turno
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M5 12h14M12 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
         </div>
     </main>
+
 
     <script>
         // JavaScript for mobile menu toggle
@@ -149,7 +166,8 @@
             menu.classList.add('hidden');
         });
     </script>
-
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+    <script type="module" src="../js/infoatencion.js"></script>
 </body>
 
 </html>

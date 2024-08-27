@@ -1,0 +1,167 @@
+—TABLA SERVICIOS
+
+INSERT INTO opciones (nombre, atencion, codigo_servicio) VALUES 
+-- Prioridad Baja
+("Retiros y Depósitos Simples: Retiros de efectivo en caja", "asesor", 3),
+("Retiros y Depósitos Simples: Depósitos de efectivo o cheques en cuentas personales o empresariales", "asesor", 3),
+("Pagos de Servicios: Pagos de facturas de servicios públicos (agua, luz, gas, teléfono)", "asesor", 3),
+("Pagos de Servicios: Pagos de tarjetas de crédito", "asesor", 3),
+("Consultas de Saldo y Movimientos: Solicitudes para ver saldos de cuentas", "sistema", 3),
+("Consultas de Saldo y Movimientos: Impresión de movimientos recientes de cuenta", "sistema", 3),
+("Solicitudes de Información General: Preguntas generales sobre horarios, ubicación de sucursales, o productos básicos", "sistema", 3),
+("Actualización de Datos Personales Menores: Cambio de dirección, número de teléfono, o correo electrónico", "sistema", 3),
+
+-- Prioridad Media
+("Apertura de Cuentas Bancarias: Apertura de cuentas corrientes o de ahorro personales", "asesor", 2),
+("Apertura de Cuentas Bancarias: Apertura de cuentas corrientes o de ahorro empresariales", "asesor", 2),
+("Solicitudes de Productos Bancarios: Solicitud de tarjetas de crédito", "asesor", 2),
+("Solicitudes de Productos Bancarios: Solicitud de préstamos personales de montos bajos o medianos", "asesor", 2),
+("Solicitudes de Productos Bancarios: Solicitud de líneas de crédito", "asesor", 2),
+("Asesoramiento Financiero Básico: Consultas sobre productos de ahorro o inversión básica", "asesor", 2),
+("Asesoramiento Financiero Básico: Orientación sobre planes de ahorro o seguros simples", "asesor", 2),
+("Actualización de Datos Importantes: Actualización de beneficiarios de cuentas", "sistema", 2),
+("Actualización de Datos Importantes: Cambio de condiciones de productos bancarios existentes", "sistema", 2),
+("Atención a Reclamos No Urgentes: Reclamos relacionados con cargos erróneos o consultas sobre comisiones", "sistema", 2),
+("Atención a Reclamos No Urgentes: Resolución de dudas sobre el funcionamiento de productos no críticos", "sistema", 2),
+
+-- Prioridad Alta
+("Bloqueo y Reemplazo de Tarjetas: Bloqueo de tarjetas por pérdida, robo o sospecha de fraude", "sistema", 1),
+("Bloqueo y Reemplazo de Tarjetas: Reemplazo inmediato de tarjetas de débito o crédito", "asesor", 1),
+("Resolución de Disputas Urgentes: Disputas por transacciones fraudulentas o incorrectas", "asesor", 1),
+("Resolución de Disputas Urgentes: Problemas con pagos no autorizados o errores graves en la cuenta", "asesor", 1),
+("Solicitudes de Créditos Importantes: Solicitud de créditos hipotecarios o de grandes sumas", "asesor", 1),
+("Solicitudes de Créditos Importantes: Financiamiento para empresas que requieren aprobación rápida", "asesor", 1),
+("Atención a Clientes de Alto Valor: Clientes VIP o de banca privada con necesidades urgentes o importantes", "asesor", 1),
+("Casos de Emergencia Financiera: Solicitud de adelantos o liberación de fondos en situaciones de emergencia", "asesor", 1),
+("Casos de Emergencia Financiera: Resolución de problemas con acceso a fondos en situaciones críticas (p. ej., bloqueo de cuentas por errores)", "asesor", 1);
+
+
+—TABLA RESPUESTAS
+
+INSERT INTO respuestas (codigo_servicio, codigo_opcion, titulo, descripcion) VALUES 
+-- Prioridad Baja
+(3, 5, "Consultas de Saldo y Movimientos", "Puedes seguir los siguientes pasos para ver los saldos de tus cuentas."),
+(3, 6, "Consultas de Saldo y Movimientos", "Puedes seguir los siguientes pasos para imprimir los movimientos recientes de tu cuenta."),
+(3, 7, "Solicitudes de Información General", "Puedes seguir los siguientes pasos para obtener información general sobre horarios, ubicación de sucursales, o productos básicos."),
+(3, 8, "Actualización de Datos Personales Menores", "Puedes seguir los siguientes pasos para actualizar tu dirección, número de teléfono, o correo electrónico."),
+
+-- Prioridad Media
+(2, 16, "Actualización de Datos Importantes", "Puedes seguir los siguientes pasos para actualizar los beneficiarios de tus cuentas."),
+(2, 17, "Actualización de Datos Importantes", "Puedes seguir los siguientes pasos para cambiar las condiciones de tus productos bancarios."),
+(2, 18, "Atención a Reclamos No Urgentes", "Puedes seguir los siguientes pasos para hacer un reclamo relacionado con cargos erróneos o consultas sobre comisiones."),
+(2, 19, "Atención a Reclamos No Urgentes", "Puedes seguir los siguientes pasos para resolver dudas sobre el funcionamiento de productos no críticos."),
+
+-- Prioridad Alta
+(1, 20, "Bloqueo y Reemplazo de Tarjetas", "Puedes seguir los siguientes pasos para bloquear tu tarjeta por pérdida, robo o sospecha de fraude.");
+
+
+—TABLA detalle_respuestas
+
+-- Detalles para "Consultas de Saldo y Movimientos" (ID Respuesta: 1)
+INSERT INTO detalle_respuestas (codigo_respuesta, titulo, descripcion, link) VALUES 
+(1, "Paso 1", "Ingresa al portal www.example.com y busca tu perfil.", NULL),
+(1, "Paso 2", "Selecciona la opción 'Consultar Saldo'.", NULL),
+(1, "Paso 3", "Visualiza o imprime los movimientos recientes de tu cuenta.", NULL),
+
+-- Detalles para "Consultas de Saldo y Movimientos: Impresión de movimientos" (ID Respuesta: 2)
+(2, "Paso 1", "Ingresa al portal www.example.com y selecciona 'Movimientos'.", NULL),
+(2, "Paso 2", "Selecciona el rango de fechas para los movimientos que deseas ver.", NULL),
+(2, "Paso 3", "Imprime o descarga los movimientos seleccionados.", NULL),
+
+-- Detalles para "Solicitudes de Información General" (ID Respuesta: 3)
+(3, "Paso 1", "Ingresa al portal www.example.com y selecciona 'Ayuda'.", NULL),
+(3, "Paso 2", "Busca la información que necesitas en la sección de preguntas frecuentes (FAQs).", NULL),
+
+-- Detalles para "Actualización de Datos Personales Menores" (ID Respuesta: 4)
+(4, "Paso 1", "Accede a tu cuenta en www.example.com.", NULL),
+(4, "Paso 2", "Ve a la sección de 'Configuración de Cuenta'.", NULL),
+(4, "Paso 3", "Actualiza la información personal y guarda los cambios.", NULL),
+
+-- Detalles para "Actualización de Datos Importantes: Beneficiarios" (ID Respuesta: 5)
+(5, "Paso 1", "Ingresa al portal www.example.com y selecciona 'Mis Cuentas'.", NULL),
+(5, "Paso 2", "Elige la cuenta donde deseas actualizar los beneficiarios.", NULL),
+(5, "Paso 3", "Modifica los datos y confirma los cambios.", NULL),
+
+-- Detalles para "Actualización de Datos Importantes: Condiciones" (ID Respuesta: 6)
+(6, "Paso 1", "Accede a tu cuenta en www.example.com.", NULL),
+(6, "Paso 2", "Ve a la sección 'Mis Productos'.", NULL),
+(6, "Paso 3", "Selecciona el producto cuyas condiciones deseas modificar y guarda los cambios.", NULL),
+
+-- Detalles para "Atención a Reclamos No Urgentes: Cargos Erróneos" (ID Respuesta: 7)
+(7, "Paso 1", "Inicia sesión en www.example.com y selecciona 'Reclamos'.", NULL),
+(7, "Paso 2", "Rellena el formulario con los detalles del reclamo.", NULL),
+(7, "Paso 3", "Envía el reclamo y recibirás una respuesta en un plazo de 24-48 horas.", NULL),
+
+-- Detalles para "Atención a Reclamos No Urgentes: Dudas sobre Productos" (ID Respuesta: 8)
+(8, "Paso 1", "Ingresa al portal www.example.com y selecciona 'Soporte'.", NULL),
+(8, "Paso 2", "Busca la información en la sección de soporte o utiliza el chat en línea.", NULL),
+
+-- Detalles para "Bloqueo y Reemplazo de Tarjetas" (ID Respuesta: 9)
+(9, "Paso 1", "Ingresa al portal www.example.com y busca tu perfil.", NULL),
+(9, "Paso 2", "Ve a la sección 'Privacidad y Seguridad'.", NULL),
+(9, "Paso 3", "Selecciona 'Bloqueo de Tarjeta' y sigue las instrucciones para bloquearla.", NULL);
+
+
+—Tabla opciones CLIENTE NO REGISTRADO
+-- Prioridad Baja
+INSERT INTO opciones (nombre, codigo_servicio, atencion) VALUES 
+("Consultas Generales sobre la Banca", 5, "no_registrado"),
+("Información sobre Horarios y Ubicación", 5, "no_registrado"),
+("Consulta de Requisitos para Apertura de Cuenta", 5, "no_registrado");
+
+-- Prioridad Media
+INSERT INTO opciones (nombre, codigo_servicio, atencion) VALUES 
+("Solicitudes de Información sobre Productos Bancarios", 5, "no_registrado"),
+("Preguntas Frecuentes (FAQs)", 5, "no_registrado");
+
+-- Prioridad Alta
+INSERT INTO opciones (nombre, codigo_servicio, atencion) VALUES 
+("Reporte de Problemas Urgentes", 5, "no_registrado");
+
+
+—Tabla RESPUESTAS NO REGISTRADO
+-- Respuestas para clientes no registrados
+INSERT INTO respuestas (codigo_servicio, codigo_opcion, titulo, descripcion) VALUES
+(5, 29, "Consultas Generales sobre la Banca", "Puedes seguir los siguientes pasos para realizar consultas generales sobre la banca."),
+(5, 30, "Información sobre Horarios y Ubicación", "Puedes seguir los siguientes pasos para obtener información sobre horarios y ubicación de nuestras sucursales."),
+(5, 31, "Consulta de Requisitos para Apertura de Cuenta", "Puedes seguir los siguientes pasos para conocer los requisitos necesarios para abrir una cuenta bancaria."),
+(5, 32, "Solicitudes de Información sobre Productos Bancarios", "Puedes seguir los siguientes pasos para solicitar información sobre nuestros productos bancarios."),
+(5, 33, "Preguntas Frecuentes (FAQs)", "Puedes seguir los siguientes pasos para acceder a nuestras preguntas frecuentes."),
+(5, 34, "Reporte de Problemas Urgentes", "Puedes seguir los siguientes pasos para reportar problemas urgentes.");
+
+
+—Detalle respuestas -- Detalles para "Consultas Generales sobre la Banca"
+INSERT INTO detalle_respuestas (codigo_respuesta, titulo, descripcion, link) VALUES
+(10, "Paso 1", "Ingresa al portal web de tu banco en www.example.com.", NULL),
+(10, "Paso 2", "Busca la sección de 'Consultas Generales' en el menú principal.", NULL),
+(10, "Paso 3", "Selecciona el tema de tu consulta y sigue las instrucciones proporcionadas.", NULL);
+
+-- Detalles para "Información sobre Horarios y Ubicación"
+INSERT INTO detalle_respuestas (codigo_respuesta, titulo, descripcion, link) VALUES
+(11, "Paso 1", "Accede al sitio web del banco en www.example.com.", NULL),
+(11, "Paso 2", "Dirígete a la sección 'Ubicación y Horarios' desde el menú principal.", NULL),
+(11, "Paso 3", "Consulta los horarios y ubicaciones de las sucursales más cercanas.", NULL);
+
+-- Detalles para "Consulta de Requisitos para Apertura de Cuenta"
+INSERT INTO detalle_respuestas (codigo_respuesta, titulo, descripcion, link) VALUES
+(12, "Paso 1", "Visita el portal web en www.example.com.", NULL),
+(12, "Paso 2", "Navega a la sección de 'Apertura de Cuenta'.", NULL),
+(12, "Paso 3", "Consulta los requisitos necesarios y reúne la documentación requerida.", NULL);
+
+-- Detalles para "Solicitudes de Información sobre Productos Bancarios"
+INSERT INTO detalle_respuestas (codigo_respuesta, titulo, descripcion, link) VALUES
+(13, "Paso 1", "Accede al sitio web del banco en www.example.com.", NULL),
+(13, "Paso 2", "Selecciona 'Productos Bancarios' en el menú.", NULL),
+(13, "Paso 3", "Elige el producto de interés y consulta la información detallada.", NULL);
+
+-- Detalles para "Preguntas Frecuentes (FAQs)"
+INSERT INTO detalle_respuestas (codigo_respuesta, titulo, descripcion, link) VALUES
+(14, "Paso 1", "Ingresa a la página principal del banco en www.example.com.", NULL),
+(14, "Paso 2", "Busca la sección 'Preguntas Frecuentes' en el menú de ayuda.", NULL),
+(14, "Paso 3", "Revisa las preguntas y respuestas frecuentes para encontrar la información que necesitas.", NULL);
+
+-- Detalles para "Reporte de Problemas Urgentes"
+INSERT INTO detalle_respuestas (codigo_respuesta, titulo, descripcion, link) VALUES
+(15, "Paso 1", "Visita el portal web en www.example.com.", NULL),
+(15, "Paso 2", "Dirígete a la sección 'Reporte de Problemas Urgentes'.", NULL),
+(15, "Paso 3", "Completa el formulario con la descripción del problema y envíalo para recibir asistencia urgente.", NULL);
