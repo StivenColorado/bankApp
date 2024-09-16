@@ -1,3 +1,5 @@
+import CONFIG from './config.js'
+
 document.addEventListener("DOMContentLoaded", () => {
 
     let btn_guide = document.querySelector("#to-home-button").addEventListener("click", (e) => {
@@ -10,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // console.log(opcionServicio)
     if (opcionServicio) {
         // Realizar la petición fetch
-        fetch("http://localhost/bankApp/backend/guide.php", {
+        fetch(`${CONFIG.API_BASE_URL}guide.php`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

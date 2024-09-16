@@ -1,4 +1,6 @@
 var notyf = new Notyf();
+import CONFIG  from "./config.js";
+
 // Esperar a que el DOM esté completamente cargado (si es necesario)
 document.addEventListener("DOMContentLoaded", () => {
     // Obtener los datos de localStorage
@@ -18,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         // Enviar los datos al servidor
-        fetch("http://localhost/bankApp/backend/registro_atencion_sistema.php", {
+        fetch(`${CONFIG.API_BASE_URL}registro_atencion_sistema.php`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
