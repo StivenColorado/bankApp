@@ -1,13 +1,7 @@
 <?php
-require_once 'src/JWT.php'; // Asegúrate de que esta línea apunta a tu autoload
-
-use \Firebase\JWT\JWT;
-
 include 'cors.php'; 
 include 'conexion.php';
 
-$secret_key = "your_secret_key";
-$algorithm = 'HS256'; 
 // Verificar si la solicitud es POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = json_decode(file_get_contents('php://input'), true);
@@ -23,20 +17,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             if ($result->num_rows > 0) {
                 $cliente = $result->fetch_assoc();
-
-                // Crear payload y token JWT
-                $payload = array(
-                    "id" => $cliente['id'],
-                    "iat" => time(),
-                    "exp" => time() + (60 * 60) // Expira en 1 hora
-                );
-
-                $jwt = JWT::encode($payload, $secret_key, $algorithm);
                 $response = array(
                     "status" => "success",
                     "message" => "La cédula está registrada.",
-                    "data" => $cliente,
-                    "token" => $jwt // Incluir el token en la respuesta
+                    "data" => $cliente
                 );
             } else {
                 $response = array("status" => "error", "message" => "La cédula no está registrada.");

@@ -23,11 +23,8 @@ document.addEventListener("DOMContentLoaded", () => {
         })
             .then(response => response.json())
             .then(data => {
-                respuestas = data.respuestas[0]
-
-                // console.log(respuestas)
-                // console.log(respuestas.detalles[0])
                 if (data.status === "success") {
+                    let respuestas = data.respuestas[0];
                     // Estructura HTML para opciones y respuestas
                     const container = document.querySelector('.container-options-respuestas');
 

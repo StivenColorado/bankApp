@@ -38,7 +38,6 @@ form.addEventListener("submit", (e) => {
                 // Usuario encontrado, guardar en localStorage y redirigir
                 notyf.success(data.message);
                 localStorage.setItem('cliente', JSON.stringify(data.data));
-                localStorage.setItem('token', data.token); // Guardar el token en localStorage
                 setTimeout(() => {
                     location.href = "../pages/services.html";
                 }, 2000);
@@ -47,8 +46,7 @@ form.addEventListener("submit", (e) => {
                 fetch(`${CONFIG.API_BASE_URL}registrar_cliente.php`, {
                     method: "POST",
                     headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${localStorage.getItem('token')}` // Enviar el token en la cabecera
+                        'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({ cedula: formData.get('cedula') })
                 })
@@ -59,6 +57,8 @@ form.addEventListener("submit", (e) => {
                         return response.json();
                     })
                     .then(data => {
+                        console.log(data);
+                        
                         if (data.status === "success") {
                             // Nuevo cliente registrado, guardar en localStorage y redirigir
                             notyf.success(data.message);
